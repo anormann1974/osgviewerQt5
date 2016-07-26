@@ -16,7 +16,7 @@
 #include <osg/Shape>
 #include <osg/MatrixTransform>
 #include <osgViewer/Viewer>
-
+#include <osg/Version>
 
 static osg::Node* createScene()
 {
@@ -67,6 +67,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QApplication::setAttribute(Qt::AA_UseDesktopOpenGL);
+
+    OSG_NOTICE << "Using OSG version " << osgGetVersion() << std::endl;
 
     ViewerWidget viewerWidget;
     viewerWidget.setGeometry(100, 100, 1280, 720);

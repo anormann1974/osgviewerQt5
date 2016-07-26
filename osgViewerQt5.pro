@@ -29,10 +29,18 @@ win32 {
     LIBS += -L$$OSG_ROOT/lib
 
     CONFIG(debug, debug|release) {
-        LIBS += -losgd -losgUtild -losgGAd -losgDBd -losgViewerd -losgTextd -losgShadowd -lOpenThreadsd
+        LIBS += -losgd -losgUtild -losgGAd -losgDBd -losgViewerd -losgTextd -lOpenThreadsd
     } else {
-        LIBS += -losg -losgUtil -losgGA -losgDB -losgViewer -losgText -losgShadow -lOpenThreads
+        LIBS += -losg -losgUtil -losgGA -losgDB -losgViewer -losgText -lOpenThreads
     }
 
     LIBS += -lOpenGL32
+}
+
+macx {
+    OSG_ROOT = /Users/andre/Developer/OSG-3.5.4
+
+    INCLUDEPATH += $$OSG_ROOT/include
+    LIBS += -L$$OSG_ROOT/lib
+    LIBS += -losg -losgGA -losgViewer -lOpenThreads
 }
